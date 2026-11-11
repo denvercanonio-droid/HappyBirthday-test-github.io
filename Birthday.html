@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday! Jesha 🎂</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #e8d5ff);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255,255,255,0.8);
+    padding: 35px 25px;
+    border-radius: 25px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 30px #d68cb866;
+    animation: appear 1s ease;
+}
+
+h1 {
+    color: #ff69a6;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.cake {
+    font-size: 90px;
+    margin: 15px;
+    animation: bounce 2s infinite;
+}
+
+p {
+    color: #8d6684;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+button {
+    margin-top: 25px;
+    border: none;
+    background: #ff78ad;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ec4d91;
+    transform: scale(1.08);
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+    color: #e75491;
+    animation: appear 1s ease;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday! 🎀</h1>
+
+    <p>Today is your special day! </p>
+
+    <div class="cake">🎂</div>
+
+    <p>
+        Wishing you a day full of happiness,
+        laughter, and beautiful memories.
+    </p>
+
+    <button onclick="showMessage()">
+        Open Your Surprise 💌
+    </button>
+
+    <div id="message">
+        <h2> A Special Wish </h2>
+        <p>
+            May all your dreams come true.
+            Keep smiling, keep shining, and
+            never stop being wonderful.
+            You deserve all the happiness
+            in the world! 🌷✨
+        </p>
+        <h2>Enjoy your day! 🥳</h2>
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+
+    for (let i = 0; i < 20; i++) {
+        createHeart();
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["", "", "", "", ""][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 700);
+</script>
+
+</body>
+</html>
